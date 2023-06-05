@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# This script compiles a Python script file.
+
+# Get the Python file name from the environment variable.
+pyfile=$PYFILE
+
+# Get the output filename.
+output_filename=${pyfile%.py}.pyc
+
+# Compile the Python file.
+python3 -m py_compile -o $output_filename $pyfile
+
+# Print a message to the user.
+echo "The Python file $pyfile has been compiled to $output_filename."
+
