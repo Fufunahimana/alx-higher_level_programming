@@ -34,9 +34,7 @@ def placeSquare(row, position, chessboard, N):
 if len(sys.argv) != 2:
     print("Usage: nqueens N")
     sys.exit(1)
-
 N = sys.argv[1]
-
 if not str.isdigit(N):
     print("N must be a number")
     sys.exit(1)

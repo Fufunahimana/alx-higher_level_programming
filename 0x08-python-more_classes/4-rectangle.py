@@ -15,21 +15,21 @@ class Rectangle:
         self.width = width
         self.height = height
 
-    #property
+    @property
     def width(self):
         """gets width
 
         """
         return self.__width
 
-    #property
+    @property
     def height(self):
         """gets height
 
         """
         return self.__height
 
-    #width.setter
+    @width.setter
     def width(self, value):
         """sets width
 
@@ -40,7 +40,7 @@ class Rectangle:
             raise ValueError('width must be >= 0')
         self.__width = value
 
-    #height.setter
+    @height.setter
     def height(self, value):
         """sets height
 
@@ -71,10 +71,10 @@ class Rectangle:
         """
         if not self.perimeter:
             return ""
-        return('\n'.join('#' * self.width for x in range(self.height)))
+        return ('\n'.join('#' * self.width for x in range(self.height)))
 
     def __repr__(self):
         """modifies repr object
 
         """
-        return("Rectangle({}, {})".format(self.width, self.height))
+        return ("Rectangle({}, {})".format(self.width, self.height))
