@@ -75,7 +75,7 @@ class Rectangle:
         """
         if not self.perimeter:
             return ""
-        return('\n'.join("{}".format(
+        return ('\n'.join("{}".format(
             self.print_symbol) * self.width for x in range(self.height)))
 
     def __repr__(self):
