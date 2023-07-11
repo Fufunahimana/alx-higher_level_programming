@@ -13,14 +13,14 @@ def pascal_triangle(n):
     if n <= 0:
         return []
     res = []
-    l = []
+    t = []
     for x in range(n):
         row = []
         for y in range(x + 1):
             if x == 0 or y == 0 or x == y:
                 row.append(1)
             else:
-                row.append(l[y] + l[y - 1])
-        l = row
+                row.append(t[y] + t[y - 1])
+        t = row
         res.append(row)
     return res
