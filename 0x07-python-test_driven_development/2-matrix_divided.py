@@ -1,19 +1,40 @@
 #!/usr/bin/python3
-"""matrix divider module"""
+
+"""
+2-matrix_divided
+"""
+
 def matrix_divided(matrix, div):
-    """divides a matrix all elements by divider
     """
-    if(not isinstance(matrix,list) or not len(matrix) or
-       0 in [len(listx) if type(listx) is list else 0 for listx in matrix] or
-       any(False in x for x in  [[isinstance(ele,(int,float)) for ele in row]
-       for row in matrix])):
-        raise TypeError(
-            'matrix must be a matrix (list of lists) of integers/floats')
-    if(len(set([len(listx) for listx in matrix])) > 1):
-        raise TypeError(
-            'Each row of the matrix must have the same size')
-    if(not isinstance(div,(int,float))):
-        raise TypeError('div must be a number')
-    if(div is 0):
-        raise ZeroDivisionError('division by zero')
-    return [[round(ele / div, 2) for ele in row] for row in matrix]
+    divides matrix by div
+
+    Args:
+        matrix (list): list containing lists
+        div (int): number to divide by
+
+    Returns:
+        list: matrix
+
+    """
+
+    new_matrix = []
+
+    if len(matrix[0]) != len(matrix[1]):
+        raise TypeError("Each row of the matrix must have the same size")
+    elif not isinstance(div, (int, float)):
+        raise TypeError("div must be a number")
+    elif div == 0:
+        raise ZeroDivisionError("division by zero")
+
+    for i in range(len(matrix)):
+        new_row = []
+        for j in matrix[i]:
+            if isinstance(j, (int, float)):
+                new_row.append(round(j/div, 2))
+            else:
+                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+
+        new_matrix.append(new_row)
+
+    return new_matrix
+
